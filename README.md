@@ -136,6 +136,7 @@ public class Frog extends Amphibian {
     }
 }
 
+```
 But we cannot extend the Amphibian class to a Dolphin class because dolphins only live in water which implies that the walk() method would be irrelevant to the Dolphin class.
 
 So, when you extend a class, if some of the properties of the initial class are not useful for the new class, the Liskov substitution principle has been violated.
@@ -144,7 +145,6 @@ The solution to this is simple: create interfaces that match the needs of the in
 
 In summary, if a class inherits another, it should do so in a manner that all the properties of the inherited class would remain relevant to its functionality.
 
-```
  
 ##  I — Interface Segregation Principle (Princípio da Segregação da Interface)
 

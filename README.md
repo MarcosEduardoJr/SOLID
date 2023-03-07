@@ -148,14 +148,55 @@ In summary, if a class inherits another, it should do so in a manner that all th
  
 ##  I — Interface Segregation Principle (Princípio da Segregação da Interface)
 
+The interface segregation principle states that the interface of a program should be split in a way that the user/client would only have access to the necessary methods related to their needs.
+
+To understand this better, we'll first look at an example that violates the ISP:
 
 ### Before
 ```
+public interface OnClickListener {
+void onClick(View v);
+void onLongClick(View v);
+void onTouch(View v,MotionEvent event);
+}
+
+Button button  = findViewById(R.id.button);
+button.setOnclickListener(new View.OnClickListener { 
+ public void onClick(View v){}
+ 
+ public void onLongClick(View v){}
+ 
+ public void onTouch(View v,MotionEvent event){}
+});
+
 ```
+Now, to refactor this, we need 3 interface, each is about the behaviour of interaction:
+
 ### After
 ```
+public interface OnClickListener{
+void onClick(View v);
+}
+
+public interface onLongClickListener{
+void onLongClick(View v);
+}
+
+
+public interface onTouchListener{
+void onTouch(View v,MotionEvent event);
+}
+
+
 ```
 ##  D — Dependency Inversion Principle (Princípio da inversão da dependência)
+
+The dependency inversion principle states:
+
+High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces). (Source: Wikipedia).
+And,
+
+Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions. (Source: Wikipedia).
 
 ### Before
 ```

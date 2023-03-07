@@ -113,12 +113,38 @@ public class Discount15PeerCent implements Discount{
 
 ##  L — Liskov Substitution Principle (Princípio da substituição de Liskov)
 
-### Before
+The Liskov substitution principle simply implies that when an instance of a class is passed/extended to another class, the inheriting class should have a use case for all the properties and behavior of the inherited class.
+
+Let's say we have a class called Amphibian for animals that can live on both land and water. This class has two methods to show the features of an amphibian – swim() and walk().
+ 
 ```
+public class Amphibian {
+
+    public void swim();
+    public void walk();
+
+}
+
+public class Frog extends Amphibian {
+    public void swim() {
+        System.out.println("The frog is swimming");
+    }
+    
+    public void walk() {
+        System.out.println("The frog is walking on land");
+    }
+}
+
+But we cannot extend the Amphibian class to a Dolphin class because dolphins only live in water which implies that the walk() method would be irrelevant to the Dolphin class.
+
+So, when you extend a class, if some of the properties of the initial class are not useful for the new class, the Liskov substitution principle has been violated.
+
+The solution to this is simple: create interfaces that match the needs of the inheriting class.
+
+In summary, if a class inherits another, it should do so in a manner that all the properties of the inherited class would remain relevant to its functionality.
+
 ```
-### After
-```
-```
+ 
 ##  I — Interface Segregation Principle (Princípio da Segregação da Interface)
 
 
